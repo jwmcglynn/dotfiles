@@ -3,3 +3,5 @@
 	email = jeff@jeffmcglynn.com
 [include]
  path = ~/.gitconfig.local
+[pull]
+	rebase = true
