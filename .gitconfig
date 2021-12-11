@@ -1,0 +1,5 @@
+[user]
+	name = Jeff McGlynn
+	email = jeff@jeffmcglynn.com
+[include]
+ path = ~/.gitconfig.local
