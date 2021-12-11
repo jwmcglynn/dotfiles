@@ -42,14 +42,17 @@ function install_alias {
 install_alias ".zshrc"
 install_alias ".inputrc"
 
-GITCONFIG_LOCAL_DOTFILE="$SCRIPT_DIR/.gitconfig.$HOSTNAME"
-if [ ! -f "$GITCONFIG_LOCAL_DOTFILE" ]; then
-  echo "Creating machine-specific file: $GITCONFIG_LOCAL_DOTFILE"
-  touch "$GITCONFIG_LOCAL_DOTFILE"
-fi
+if [ ! -f /.dockerenv ]; then
+  GITCONFIG_LOCAL_DOTFILE="$SCRIPT_DIR/.gitconfig.$HOSTNAME"
+  if [ ! -f "$GITCONFIG_LOCAL_DOTFILE" ]; then
+    echo "Creating machine-specific file: $GITCONFIG_LOCAL_DOTFILE"
+    touch "$GITCONFIG_LOCAL_DOTFILE"
+  fi
 
-install_alias ".gitconfig.local" ".gitconfig.$HOSTNAME"
-install_alias ".gitconfig"
+  # Only sync gitconfig if we're not in a docker container.
+  install_alias ".gitconfig.local" ".gitconfig.$HOSTNAME"
+  install_alias ".gitconfig"
+fi
 
 if [[ `uname` == "Darwin" ]]; then
   echo "The following packages need to be installed:"
