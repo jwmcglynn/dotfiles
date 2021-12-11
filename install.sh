@@ -20,17 +20,19 @@ function install_alias {
   fi
 
   if [[ -f "$HOME/$HOME_BASENAME" || -L "$HOME/$HOME_BASENAME" ]]; then
-    echo "WARNING: ~/$HOME_BASENAME exists"
-    diff -u "$HOME/$HOME_BASENAME" "$SCRIPT_DIR/$DOTFILES_BASENAME" && ret=0 || ret=$?
-    if [ "$ret" -ne 0 ]; then
-      while true; do
-        read -p "Overwrite [y/n]?" yn
-        case $yn in
-            [Yy]* ) break;;
-            [Nn]* ) exit;;
-            * ) echo "Please answer y/n.";;
-        esac
-      done
+    if [ ! -f /.dockerenv ]; then
+      echo "WARNING: ~/$HOME_BASENAME exists"
+      diff -u "$HOME/$HOME_BASENAME" "$SCRIPT_DIR/$DOTFILES_BASENAME" && ret=0 || ret=$?
+      if [ "$ret" -ne 0 ]; then
+        while true; do
+          read -p "Overwrite [y/n]?" yn
+          case $yn in
+              [Yy]* ) break;;
+              [Nn]* ) exit;;
+              * ) echo "Please answer y/n.";;
+          esac
+        done
+      fi
     fi
 
     ln -sf "$SCRIPT_DIR/$DOTFILES_BASENAME" "$HOME/$HOME_BASENAME"
