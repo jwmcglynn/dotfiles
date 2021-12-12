@@ -33,6 +33,9 @@ function install_alias {
           esac
         done
       fi
+    else
+      # If we're in docker, backup the original in case we want to reference later.
+      mv "$HOME/$HOME_BASENAME" "$HOME/$HOME_BASENAME.bak"
     fi
 
     ln -sf "$SCRIPT_DIR/$DOTFILES_BASENAME" "$HOME/$HOME_BASENAME"

@@ -1,7 +1,17 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$PATH
-
 export DOTFILES_DIR=$(cd $(dirname $(realpath "$HOME/.zshrc")) && pwd)
+
+source $DOTFILES_DIR/zsh/path.zsh
+source $DOTFILES_DIR/zsh/docker.zsh
+
+path_prepend $HOME/bin
+
+##
+## Set locale
+##
+# This prevents an "git_prompt_info:20: character not in range" error within the bullet-train
+# prompt.  See https://github.com/caiogondim/bullet-train.zsh/issues/207
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 ##
 ## Set up oh-my-zsh
@@ -104,3 +114,7 @@ bindkey "^[[B" history-beginning-search-forward
 # For a full list of active aliases, run `alias`.
 #
 alias zshconfig="code ~/.zshrc"
+alias df="git -C $DOTFILES_DIR"
+alias dotfiles="df"
+
+alias zshreload="exec zsh"
