@@ -8,6 +8,8 @@ function path_append() {
   done
 }
 
+DOTFILES_COMMANDS["path_append"]="Append arg to \$PATH."
+
 function path_prepend() {
   for ((i=$#; i>0; i--)); do
     ARG=${(P)i}
@@ -16,3 +18,5 @@ function path_prepend() {
     fi
   done
 }
+
+DOTFILES_COMMANDS["path_prepend"]="Prepend arg on \$PATH."

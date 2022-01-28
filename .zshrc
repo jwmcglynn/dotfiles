@@ -1,8 +1,12 @@
 export DOTFILES_DIR=$(cd $(dirname $(realpath "$HOME/.zshrc")) && pwd)
 
+# These includes must be in a specific order, with help them os utils.
+source $DOTFILES_DIR/zsh/help.zsh
 source $DOTFILES_DIR/zsh/os.zsh
-source $DOTFILES_DIR/zsh/path.zsh
+
+# These includes are in sorted order.
 source $DOTFILES_DIR/zsh/docker.zsh
+source $DOTFILES_DIR/zsh/path.zsh
 
 path_prepend $HOME/bin
 
@@ -109,13 +113,23 @@ setopt COMPLETE_IN_WORD
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# Help for commands not directly provided by zsh, but available as part
+# of the dotfiles.
+DOTFILES_COMMANDS["z dotfiles"]="Go to dotfiles dir."
+
+DOTFILES_COMMANDS["git amend"]="Amend the last commit."
+DOTFILES_COMMANDS["git publish"]="Push and publish branch."
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 alias zshconfig="code ~/.zshrc"
+DOTFILES_COMMANDS["zshconfig"]="Open the .zshrc file in vscode."
+
 alias gitdf="git -C $DOTFILES_DIR"
-alias dotfiles="df"
+DOTFILES_COMMANDS["gitdf"]="Run git on the dotfiles directory."
 
 alias zshreload="exec zsh"
+DOTFILES_COMMANDS["zshreload"]="Reload the zsh shell."

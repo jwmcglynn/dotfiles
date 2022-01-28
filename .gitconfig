@@ -7,6 +7,6 @@
 	rebase = true
 [alias]
 	amend = commit --amend --no-edit
-	push-global = git push --set-upstream origin HEAD
+	publish = git push --set-upstream origin HEAD
 [init]
 	defaultBranch = main

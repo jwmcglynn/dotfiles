@@ -1,10 +1,12 @@
 # Returns true if we're in a docker instance.
 function is_docker() {
-    [ ! -f /.dockerenv ]
+  [ -f /.dockerenv ]
 }
 
+DOTFILES_COMMANDS["is_docker"]="Returns true if we're in a docker instance."
+
 # Exit execution if we're not within docker.
-if [ ! is_docker ]; then
+if ! is_docker; then
   return
 fi
 

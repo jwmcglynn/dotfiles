@@ -1,15 +1,11 @@
 function is_linux() {
-  if [ "$(uname)" = "Linux" ]; then
-    true
-  else
-    false
-  fi
+  [ "$(uname)" = "Linux" ]
 }
 
+DOTFILES_COMMANDS["is_linux"]="Returns true on Linux\n \tif is_linux; then echo \"linux\"; fi"
+
 function is_macos() {
-  if [ "$(uname)" = "Darwin" ]; then
-    true
-  else
-    false
-  fi
+  [ "$(uname)" = "Darwin" ]
 }
+
+DOTFILES_COMMANDS["is_macos"]="Returns true on macos.\n \tif is_macos; then echo \"macos\"; fi"
