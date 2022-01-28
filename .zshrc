@@ -136,3 +136,13 @@ DOTFILES_COMMANDS["gitdf"]="Run git on the dotfiles directory."
 
 alias zshreload="exec zsh"
 DOTFILES_COMMANDS["zshreload"]="Reload the zsh shell."
+
+##
+## Machine-specific configs
+##
+
+if ! is_docker; then
+  if [ -f "$DOTFILES_DIR/.zshrc.$HOST" ]; then
+    source "$DOTFILES_DIR/.zshrc.$HOST"
+  fi
+fi

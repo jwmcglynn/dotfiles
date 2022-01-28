@@ -1,0 +1,6 @@
+# Set DISPLAY if none is set.
+if [ -z "$DISPLAY" ]; then
+  export DISPLAY=":0"
+fi
+
+path_prepend "$HOME/Projects/desk-pi/bin"
