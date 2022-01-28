@@ -115,7 +115,7 @@ bindkey "^[[B" history-beginning-search-forward
 # For a full list of active aliases, run `alias`.
 #
 alias zshconfig="code ~/.zshrc"
-alias df="git -C $DOTFILES_DIR"
+alias gitdf="git -C $DOTFILES_DIR"
 alias dotfiles="df"
 
 alias zshreload="exec zsh"
