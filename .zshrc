@@ -7,6 +7,9 @@ source $DOTFILES_DIR/zsh/os.zsh
 # These includes are in sorted order.
 source $DOTFILES_DIR/zsh/docker.zsh
 source $DOTFILES_DIR/zsh/path.zsh
+if [ "$(uname)" = "Darwin" ]; then
+  source $DOTFILES_DIR/zsh/osx.zsh
+fi
 
 path_prepend $HOME/bin
 
