@@ -1,5 +1,6 @@
 export DOTFILES_DIR=$(cd $(dirname $(realpath "$HOME/.zshrc")) && pwd)
 
+source $DOTFILES_DIR/zsh/os.zsh
 source $DOTFILES_DIR/zsh/path.zsh
 source $DOTFILES_DIR/zsh/docker.zsh
 
