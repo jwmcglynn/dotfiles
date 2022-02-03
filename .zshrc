@@ -66,21 +66,15 @@ antigen apply
 BULLETTRAIN_CONTEXT_DEFAULT_USER="jwm"
 BULLETTRAIN_EXEC_TIME_ELAPSED=0
 BULLETTRAIN_STATUS_EXIT_SHOW=true
-BULLETTRAIN_PROPT_ORDER=(
+BULLETTRAIN_PROMPT_ORDER=(
   time
   status
   custom
   context
   dir
   screen
-  perl
-  ruby
   virtualenv
-  nvm
-  aws
-  go
   rust
-  elixir
   git
   cmd_exec_time
 )
@@ -128,8 +122,8 @@ DOTFILES_COMMANDS["git publish"]="Push and publish branch."
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias zshconfig="code ~/.zshrc"
-DOTFILES_COMMANDS["zshconfig"]="Open the .zshrc file in vscode."
+alias codedf="code $DOTFILES_DIR"
+DOTFILES_COMMANDS["codedf"]="Open the dotfiles dir file in vscode."
 
 alias gitdf="git -C $DOTFILES_DIR"
 DOTFILES_COMMANDS["gitdf"]="Run git on the dotfiles directory."
