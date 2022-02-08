@@ -3,4 +3,4 @@ if [ -z "$DISPLAY" ]; then
   export DISPLAY=":0"
 fi
 
-path_prepend "$HOME/Projects/desk-pi/bin"
+path_prepend "$HOME/Projects/home-servers/pi-bin"
