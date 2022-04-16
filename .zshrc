@@ -142,4 +142,7 @@ if ! is_docker; then
   if [ -f "$DOTFILES_DIR/.zshrc.$HOST" ]; then
     source "$DOTFILES_DIR/.zshrc.$HOST"
   fi
+else
+  # Remove git from the prompt, since it is slow on Docker.
+  BULLETTRAIN_PROMPT_ORDER=("${(@)BULLETTRAIN_PROMPT_ORDER:#git}")
 fi
