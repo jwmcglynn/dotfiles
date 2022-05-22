@@ -28,7 +28,7 @@ function install_alias {
           read -p "Overwrite [y/n]?" yn
           case $yn in
               [Yy]* ) break;;
-              [Nn]* ) exit;;
+              [Nn]* ) return 0;;
               * ) echo "Please answer y/n.";;
           esac
         done
