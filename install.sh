@@ -69,4 +69,7 @@ if [[ `uname` == "Darwin" ]]; then
   echo ""
 else
   echo "Don't forget to install Fira Code."
+  echo ""
 fi
+
+echo "Installed, run 'exec zsh' to get started."
