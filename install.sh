@@ -68,6 +68,16 @@ if [[ `uname` == "Darwin" ]]; then
   echo " $ brew install --cask font-fira-code"
   echo ""
 else
+  if ! command -v zsh &> /dev/null; then
+      echo "zsh could not be found. Confirm that it is installed:"
+      echo " $ sudo apt-get install zsh"
+      echo ""
+  fi
+
+  echo "To change the default shell:"
+  echo " $ chsh -s \`which zsh\`"
+  echo ""
+
   echo "Don't forget to install Fira Code."
   echo ""
 fi
