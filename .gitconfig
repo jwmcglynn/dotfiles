@@ -1,6 +1,6 @@
 [user]
 	name = Jeff McGlynn
-	email = jeff@jeffmcglynn.com
+	email = jeff@mcglynn.dev
 [include]
  path = ~/.gitconfig.local
 [pull]
@@ -8,6 +8,7 @@
 [alias]
 	amend = commit --amend --no-edit
 	publish = push --set-upstream origin HEAD
+	ls-subtrees = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d ":" -f2 | xargs -I {} bash -c 'if [ -d $(git rev-parse --show-toplevel)/{} ] ; then echo {}; fi'"
 [init]
 	defaultBranch = main
 [filter "lfs"]
@@ -15,3 +16,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
