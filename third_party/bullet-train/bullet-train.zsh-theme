@@ -676,8 +676,12 @@ prompt_line_sep() {
 # Entry point
 # ------------------------------------------------------------------------------
 
+# Explicit global to avoid WARN_CREATE_GLOBAL when assigned in functions.
+typeset -gi RETVAL=0
+
 build_prompt() {
   RETVAL=$?
+  local segment
   for segment in $BULLETTRAIN_PROMPT_ORDER
   do
     prompt_$segment

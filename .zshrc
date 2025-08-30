@@ -76,7 +76,6 @@ BULLETTRAIN_PROMPT_ORDER=(
   context
   dir
   screen
-  virtualenv
   rust
   git
   cmd_exec_time
