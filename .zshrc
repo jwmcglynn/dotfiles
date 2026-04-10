@@ -11,6 +11,7 @@ if [ "$(uname)" = "Darwin" ]; then
   source $DOTFILES_DIR/zsh/osx.zsh
 fi
 
+path_prepend $HOME/.local/bin
 path_prepend $HOME/bin
 
 ##
